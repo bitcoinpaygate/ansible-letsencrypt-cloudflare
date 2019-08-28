@@ -23,7 +23,7 @@ letsencrypt_key_size: 2048
 letsencrypt_key_directory: /etc/ssl/lets_encrypt
 letsencrypt_key_filename: letsencrypt_account.key
 letsencrypt_production: no
-letsencrypt_acme_directory: "{{ 'https://acme-v01.api.letsencrypt.org/directory' if letsencrypt_production else 'https://acme-staging.api.letsencrypt.org/directory' }}"
+letsencrypt_acme_directory: "{{ 'https://acme-v01.api.letsencrypt.org/directory' if letsencrypt_production else 'https://acme-staging-v02.api.letsencrypt.org/directory' }}"
 
 
 include_intermediate: no
@@ -33,5 +33,9 @@ fullchain_filename: "{{ certificate_common_name }}.fullchain.pem"
 cloudflare_email: ""
 cloudflare_api_key: ""
 cloudflare_domain: ""
+
+dns_record_ttl: "120"
+acme_certificate_retries: "12"
+solo: true
 
 cleanup_all: no
